@@ -52,6 +52,10 @@ public class Pet extends NamedEntity {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birthDate;
 
+    @Column(name = "death_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate deathDate;
+
 	@ManyToOne
 	@JoinColumn(name = "type_id")
 	private PetType type;
@@ -70,6 +74,14 @@ public class Pet extends NamedEntity {
 	public LocalDate getBirthDate() {
 		return this.birthDate;
 	}
+
+    public void setDeathDate(LocalDate birthDate) {
+        this.deathDate = birthDate;
+    }
+
+    public LocalDate getDeathDate() {
+        return this.deathDate;
+    }
 
 	public PetType getType() {
 		return this.type;

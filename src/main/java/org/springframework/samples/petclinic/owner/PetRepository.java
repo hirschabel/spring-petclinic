@@ -34,6 +34,10 @@ import org.springframework.transaction.annotation.Transactional;
  */
 public interface PetRepository extends Repository<Pet, Integer> {
 
+    @Query("SELECT pet FROM Pet pet")
+    @Transactional(readOnly = true)
+    List<Pet> findAllPets();
+
 	/**
 	 * Retrieve all {@link PetType}s from the data store.
 	 * @return a Collection of {@link PetType}s.
